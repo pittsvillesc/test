@@ -1,0 +1,194 @@
+<!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel='import' href='../bower_components/paper-input/paper-input.html'>
+<link rel='import' href='../bower_components/paper-radio-group/paper-radio-group.html'>
+<link rel='import' href='../bower_components/paper-radio-button/paper-radio-button.html'>
+<link rel='import' href='../bower_components/paper-button/paper-button.html'>
+
+<dom-module id="my-view3">
+
+    <template>
+
+        <style>
+            :host {
+                display: block;
+                padding: 10px;
+            }
+            .card {
+                box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+                padding: 16px;
+                margin: 24px;
+                border-radius: 5px;
+                background-color: #fff;
+                color: #757575;
+            }
+            .circle {
+                display: inline-block;
+                height: 64px;
+                width: 64px;
+                border-radius: 50%;
+                background: #ddd;
+                line-height: 64px;
+                font-size: 30px;
+                color: #555;
+                text-align: center;
+            }
+            h1 {
+                font-size: 22px;
+                margin: 16px 0;
+                color: #212121;
+            }
+            #teamForm {
+                @apply(--layout-horizontal);
+                @apply(--layout-wrap);
+            }
+            .playerCard {
+                @apply(--layout-vertical);
+            }
+            paper-button.fancy {
+                background: green;
+                color: yellow;
+            }
+
+            paper-button.fancy:hover {
+                background: lime;
+            }
+        </style>
+
+        <div class="card">
+            <h1>Team Registration</h1>
+            <div><img src="/images/logo_sm.png"></div>            
+            <div id='teamCard'>
+                <paper-input label='Team Name'></paper-input>
+                <paper-input label='Home Town/Parent Club'></paper-input>
+                <paper-input label='Contact First Name'></paper-input>
+                <paper-input label='Contact Last Name'></paper-input>                
+                <paper-input label='Contact Phone Number'></paper-input>
+                <paper-input type='email' label='Contact Email'></paper-input>             
+                <paper-button class='fancy' raised>Submit Registration</paper-button>
+            </div>
+        </div>
+        <div id='teamForm'>            
+            <div class='flex-auto card playerCard'>
+                <h3>Player #1</h3>
+                <paper-input label='Player Last Name'></paper-input>
+                <paper-input label='Player First Name'></paper-input>
+                <paper-input label='Date of Birth' type='date'></paper-input>
+                <paper-input type='email' label='Player Email'></paper-input>
+                <label id='genderlabel1'>Gender</label>
+                <paper-radio-group aria-labelledby='genderlabel'>
+                    <paper-radio-button name='female'>Female</paper-radio-button>
+                    <paper-radio-button name='male'>Male</paper-radio-button>
+                </paper-radio-group>
+                <label id='label1'>Player Level/Experience</label>
+                <paper-radio-group aria-labelledby='label1'>
+                    <paper-radio-button name='a'>No Organized Experience</paper-radio-button>
+                    <paper-radio-button name='b'>Recreational League</paper-radio-button>
+                    <paper-radio-button name='c'>Travel/Competitive Youth</paper-radio-button>
+                    <paper-radio-button name='d'>Varsity/Advanced Competitive</paper-radio-button>
+                    <paper-radio-button name='e'>Elite</paper-radio-button>
+                </paper-radio-group>
+            </div>
+            <div class='flex-auto card playerCard'>
+                <h3>Player #2</h3>
+                <paper-input label='Player Last Name'></paper-input>
+                <paper-input label='Player First Name'></paper-input>
+                <paper-input label='Date of Birth' type='date'></paper-input>
+                <paper-input type='email' label='Player Email'></paper-input>
+                <label id='genderlabel2'>Gender</label>
+                <paper-radio-group aria-labelledby='genderlabel2'>
+                    <paper-radio-button name='female'>Female</paper-radio-button>
+                    <paper-radio-button name='male'>Male</paper-radio-button>
+                </paper-radio-group>
+                <label id='label1'>Player Level/Experience</label>
+                <paper-radio-group aria-labelledby='label1'>
+                    <paper-radio-button name='a'>No Organized Experience</paper-radio-button>
+                    <paper-radio-button name='b'>Recreational League</paper-radio-button>
+                    <paper-radio-button name='c'>Travel/Competitive Youth</paper-radio-button>
+                    <paper-radio-button name='d'>Varsity/Advanced Competitive</paper-radio-button>
+                    <paper-radio-button name='e'>Elite</paper-radio-button>
+                </paper-radio-group>
+            </div>
+            <div class='flex-auto card playerCard'>
+                <h3>Player #3</h3>
+                <paper-input label='Player Last Name'></paper-input>
+                <paper-input label='Player First Name'></paper-input>
+                <paper-input label='Date of Birth' type='date'></paper-input>
+                <paper-input type='email' label='Player Email'></paper-input>
+                <label id='genderlabel3'>Gender</label>
+                <paper-radio-group aria-labelledby='genderlabel3'>
+                    <paper-radio-button name='female'>Female</paper-radio-button>
+                    <paper-radio-button name='male'>Male</paper-radio-button>
+                </paper-radio-group>
+                <label id='label1'>Player Level/Experience</label>
+                <paper-radio-group aria-labelledby='label1'>
+                    <paper-radio-button name='a'>No Organized Experience</paper-radio-button>
+                    <paper-radio-button name='b'>Recreational League</paper-radio-button>
+                    <paper-radio-button name='c'>Travel/Competitive Youth</paper-radio-button>
+                    <paper-radio-button name='d'>Varsity/Advanced Competitive</paper-radio-button>
+                    <paper-radio-button name='e'>Elite</paper-radio-button>
+                </paper-radio-group>
+            </div>
+            <div class='flex-auto card playerCard'>
+                <h3>Player #4</h3>
+                <paper-input label='Player Last Name'></paper-input>
+                <paper-input label='Player First Name'></paper-input>
+                <paper-input label='Date of Birth' type='date'></paper-input>
+                <paper-input type='email' label='Player Email'></paper-input>
+                <label id='genderlabel4'>Gender</label>
+                <paper-radio-group aria-labelledby='genderlabel4'>
+                    <paper-radio-button name='female'>Female</paper-radio-button>
+                    <paper-radio-button name='male'>Male</paper-radio-button>
+                </paper-radio-group>
+                <label id='label1'>Player Level/Experience</label>
+                <paper-radio-group aria-labelledby='label1'>
+                    <paper-radio-button name='a'>No Organized Experience</paper-radio-button>
+                    <paper-radio-button name='b'>Recreational League</paper-radio-button>
+                    <paper-radio-button name='c'>Travel/Competitive Youth</paper-radio-button>
+                    <paper-radio-button name='d'>Varsity/Advanced Competitive</paper-radio-button>
+                    <paper-radio-button name='e'>Elite</paper-radio-button>
+                </paper-radio-group>
+            </div>
+            <div class='flex-auto card playerCard'>
+                <h3>Player #5</h3>
+                <paper-input label='Player Last Name'></paper-input>
+                <paper-input label='Player First Name'></paper-input>
+                <paper-input label='Date of Birth' type='date'></paper-input>
+                <paper-input type='email' label='Player Email'></paper-input>
+                <label id='genderlabel5'>Gender</label>
+                <paper-radio-group aria-labelledby='genderlabel5'>
+                    <paper-radio-button name='female'>Female</paper-radio-button>
+                    <paper-radio-button name='male'>Male</paper-radio-button>
+                </paper-radio-group>
+                <label id='label1'>Player Level/Experience</label>
+                <paper-radio-group aria-labelledby='label1'>
+                    <paper-radio-button name='a'>No Organized Experience</paper-radio-button>
+                    <paper-radio-button name='b'>Recreational League</paper-radio-button>
+                    <paper-radio-button name='c'>Travel/Competitive Youth</paper-radio-button>
+                    <paper-radio-button name='d'>Varsity/Advanced Competitive</paper-radio-button>
+                    <paper-radio-button name='e'>Elite</paper-radio-button>
+                </paper-radio-group>
+            </div>
+        </div>
+
+    </template>
+
+    <script>
+
+        Polymer({
+            is : 'my-view3'
+
+        });
+
+    </script>
+
+</dom-module>

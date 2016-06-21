@@ -1,0 +1,189 @@
+<!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
+
+<dom-module id="my-view2">
+
+    <template>
+
+        <style>
+            :host {
+                display: block;
+                padding: 10px;
+            }
+            .card {
+                box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+                padding: 16px;
+                margin: 24px;
+                border-radius: 5px;
+                background-color: #fff;
+                color: #757575;
+                /*@apply(--layout-flex-8);*/
+            }
+            .circle {
+                display: inline-block;
+                height: 64px;
+                width: 64px;
+                border-radius: 50%;
+                background: #ddd;
+                line-height: 64px;
+                font-size: 30px;
+                color: #555;
+                text-align: center;
+            }
+            h1 {
+                font-size: 22px;
+                margin: 16px 0;
+                color: #212121;
+            }
+            #rulesContainer {
+                /*width: 550px;*/
+                /*@apply(--)*/
+                @apply(--layout-horizontal);
+                @apply(--layout-wrap);
+            }
+            dt {
+                font-weight: bold;
+            }
+        </style>
+
+        <div class="card">
+            <div><img src="/images/logo_sm.png"></div>
+
+            <h1>Tournament Rules</h1>
+        </div>
+        <div id="rulesContainer">
+            <div class="flex-auto card">
+                <!--<div class="circle">2</div>-->
+                <h1>Team Registration</h1>
+                <h3>Requirements, Information, Rules, Guidelines, etc.</h3>
+                <dl>
+                    <dt>Team Registration</dt>
+                    <dd>                        
+                        <p>Teams must register and pay all team fees to participate in the tournament. Fees must be paid prior to the first match.  Any team or player determined by the Tournament Director to have falsified age or skill level could be dismissed from the tournament.
+                        <p>Divisions will be determined by the age and experience of the players.
+                        <p>We encourage teams to be co-ed, not male only.  All-female teams may register but there is no guarantee that there will be a female division in any given age group.  If there are at least 2 all-female teams in a division, there will be a girls championship.
+                        <p>Players may register with more than one team, but scheduling conflicts must be handled by each individual team.                     
+                    </dd>
+                    <dt>Official Team Roster</dt>
+                    <dd>
+                        <p>Each team must complete the online Official Team Roster Form.  Additionally, teams must print out the participant waiver and submit the waiver form with all signatures during team check-in.  All players myst be listed on the Official Team Roster prior to the team's first scheduled match.  If there are changes in the roster from what was initially submitted, please communicate these changes at team check-in.</p>
+                        <p>Five is the maximum number of players on each team's roster: three field players and two substitutes.  Teams are allowed less than six players if they choose.  A team must have a minimum of 2 field players.</p>
+                    </dd>
+                    <!--                    <dt>Number of players per team<dt>
+                                        <dd>Five is the maximum number of players on each team's roster: three field players and two substitutes.  Teams are allowed less than six players if they choose.  A team must have a minimum of 2 field players.</dd>                    -->
+                </dl>                
+            </div>
+            <div class="flex-auto card">
+                <h1>Match Regulations</h1>
+                <dl>
+                    <dt>Players</dt>
+                    <dd>Only three (3) players may play on the field at once.</dd>
+                    <dt>Match Duration</dt>
+                    <dd>
+                        <p>Games will consist of two (2) twelve minute halves with a two minute halftime.</p>
+                        <p>Games will start and stop at the sound of the official tournament horn.  This is done to insure that games start and are completed on time.</p>
+                    </dd>
+                    <dt>Forfeit</dt>
+                    <dd>
+                        <p>A minimum of two (2) players must be present and on the field when the official horn sounds to avoid a forfeit.</p>
+                        <p>Forfeits will be recorded as a 3-0 win for the winning team.</p>
+                    </dd>
+                    <dt>Points System</dt>
+                    <dd>
+                        <p>Teams receive three (3) points for a win, one (1) point for a tie, and zero (0) points for a loss.</p>
+                    </dd>
+                    <dt>Tie Breaker</dt>
+                    <dd>
+                        If teams within a group are tied, the following tie-breakers will be followed:
+                        <ol>
+                            <li>Head-to-Head competition</li>
+                            <li>Goal Differential</li>
+                            <li>Goals Allowed</li>
+                            <li>Goals Scored</li>
+                            <li>Penalty Kicks</li>
+                        </ol>
+                    </dd>
+                    <dt>Playoffs</dt>
+                    <dd>
+                        <p>During the playoffs, overtime shall consist of a five-minute "golden goal" overtime period.</p>
+                        <p>The first team to score in overtime is the winner.</p>
+                        <p>If no team has scored in the five-minute overtime, the winner shall be decided by a shootout.</p>
+                        <p>The three (3) players from each team remaining on the field at the end of the overtime period will enter a rotation of penalty kicks, alternating teams with each kick.  The higher scoring team wins after the first round of penalty kicks.</p>                                                
+                    </dd>
+                </dl>                
+            </div>
+            <div class="flex-auto card">
+                <h1>3 vs. 3 Soccer Rules</h1>
+                <dl>
+                    <dt>Kick Off</dt>
+                    <dd>The kick off may be taken in any direction. It is an indirect kick (meaning you may not score from it)</dd>
+                    <dt>Kick-Ins</dt>
+                    <dd>The ball shall be kicked into play from the sidelines, instead of thrown in.  There are no throw ins.</dd>
+                    <dt>Direct &amp; Indirect Kicks</dt>
+                    <dd>All dead-ball kicks (kick-ins, free kicks, kick offs) are indirect with the exception of penalty kicks</dd>
+                    <dt>Corner Kicks</dt>
+                    <dd>There will be no corner kicks.  All balls going over the end lines will result in a goal kick.</dd>
+                    <dt>Goal Kicks</dt>
+                    <dd>Goal kicks may be taken from any point of the end line.</dd>
+                    <dt>Penalty Kicks</dt>
+                    <dd>Shall be awarded if, in the referee's opinion, a scoring opportunity was nullified by an infraction.  Penalty kicks are DIRECT kicks taken from the center of the mid-line with all players (on both teams) behind the mid-line.  Penalty kicks are dead ball infractions.  If a goal is not scored, the defense obtains possession with a goal kick</dd>
+                    <dt>Goal Scoring</dt>
+                    <dd>A goal cannot be scored from an indirect kick, such as a kick-in from out-of-bounds.  Goals MUST be scored from the attacking half of the field.  Goals scored from behind the mid-line will result in a goal kick to the defending team.</dd>
+                    <dt>Five Yard Rule</dt>
+                    <dd>In all dead ball situations, defending players must stand at least five (5) yards away from the ball.  If the defensive player's goal is closer than five (5) yards, the ball shall be played five (5) yards from the goal, in line with the place of the infraction.</dd>
+                    <dt>Goal Box</dt>
+                    <dd>There are NO goalkeepers in 3 vs 3 soccer.  Defensive players may not play the ball in the Goal Box.  If a ball is played by a defender in the Goal Box, a goal will be awarded.  If an attacker plays the ball in the goal box, a goal kick will be awarded.  Players MAY move through the goal box.</dd>
+                    <dt>Slide Tackling</dt>
+                    <dd>Playing the ball while on the ground is not permitted with other players within striking distance.  This is considered "dangerous play" and will be called at the discretion of the referee.  Slide tackling infractions will result in an automatic yellow card.</dd>
+                    <dt>Hand Balls</dt>
+                    <dd>
+                        Deliberate handling of the ball that denies a team of an obvious goal-scoring opportunity may result in the following (at the discretion of the referee):
+                        <ul>
+                            <li>A penalty kick</li>                            
+                            <li>A yellow or red card given to the player committing the hand ball</li>
+                        </ul>
+                    </dd>
+                    <dt>Conduct</dt>
+                    <dd>
+                        A yellow/red card system will be used to control unsportsmanlike conduct and improper behavior.  Any player receiving two yellow cards during one game or a red card will be ejected and must sit out their team's next game.  Yellow/Red cards may be issued for the following:                        
+                        <ul>
+                            <b>Yellow Card</b>
+                            <li>Persistently infringes upon any of the rules of the game</li>
+                            <li>Shows dissent by word of mouth or action to the decisions given by the referee</li>
+                            <li>Is guilty of any incidental vulgar or profane language</li>
+                            <li>Is guilty of unsporting conduct</li>
+                        </ul>
+                        <ul>
+                            <b>Red Card</b>
+                            <li>Is guilty of violent conduct or serious foul play</li>
+                            <li>Is abusive in language or gesture toward a player or official</li>
+                            <li>Persists in misconduct after receiving a caution</li>
+                        </ul>
+                    </dd>
+                    <dt>Spectators</dt>
+                    <dd>Spectators may not watch the match on the player side of the field.  Only teams in age groups younger than U12 age divisions may have a coach on the sideline.  All other non-players must observe the game from the non-player side of the field.</dd>
+                </dl>
+            </div>
+        </div>
+    </template>
+
+    <script>
+
+        Polymer({
+            is : 'my-view2'
+
+        });
+
+    </script>
+
+</dom-module>
