@@ -9,63 +9,128 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 -->
 
 <link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/google-map/google-map.html">
+<link rel="import" href="../bower_components/paper-card/paper-card.html">
 
+<link rel="import" href="tourney-features.html">
 <dom-module id="my-view1">
 
-  <template>
+    <template>
 
-    <style>
-      :host {
-        display: block;
-        padding: 10px;
-      }
-      .card {
-        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
-        padding: 16px;
-        margin: 24px;
-        border-radius: 5px;
-        background-color: #fff;
-        color: #757575;
-      }
-      .circle {
-        display: inline-block;
-        height: 64px;
-        width: 64px;
-        border-radius: 50%;
-        background: #ddd;
-        line-height: 64px;
-        font-size: 30px;
-        color: #555;
-        text-align: center;
-      }
-      h1 {
-        font-size: 22px;
-        margin: 16px 0;
-        color: #212121;
-      }
-    </style>
+        <style>
+            :host {
+                display: block;
+                padding: 10px;
+            }
+            .card {
+                box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+                padding: 16px;
+                margin: 24px;
+                border-radius: 5px;
+                background-color: #fff;
+                color: #757575;
+                width: 80%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .circle {
+                display: inline-block;
+                height: 64px;
+                width: 64px;
+                border-radius: 50%;
+                background: #ddd;
+                line-height: 64px;
+                font-size: 30px;
+                color: #555;
+                text-align: center;
+            }
+            h1 {
+                font-size: 22px;
+                margin: 16px 0;
+                color: #212121;
+            }
+            #frontPageContainer {
+                /*width: 550px;*/
+                /*@apply(--)*/
+                @apply(--layout-horizontal);
+                @apply(--layout-wrap);
+            }
+            .childContainer {
+                @apply(--layout-horizontal);
+                /*@apply(--layout-self);*/
+            }
+            .centerContainer {
+                @apply(--layout-horizontal);
+                @apply(--layout-center-justified);
+            }
+            .logoText {
+                @apply(--paper-font-headline);
+            }
+            google-map {
+                height: 600px;
+                /*width: 80%;*/               
+                margin-left: auto;
+                margin-right: auton;
+            }
+            .centered {
+                max-width: 350px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        </style>
 
-    <div class="card">
-      <!--<div class="circle">1</div>-->
-      <div><img src="/images/logo_sm.png"></div>
-      <h1>Voyageurs FC Open Cup 3 vs 3 Tournament</h1>
-      <p>Pittsville Youth Soccer and Be Healthy In Pittsville invite you to participate in a celebration of The Beautiful Game!</p>
-      <h3>When: Saturday, August 13th (9am - 8pm)</h3>      
-      <h3>Where: Riverside Park - Pittsville, WI</h3>
-      <p>The tournament is open for all skill levels.  Minimum age is children going into the 2nd Grade.  Adult age divisions available as well!</p>
-            
-    </div>
+        <div id="frontPageContainer">
+            <paper-card image="../images/tourney_logo_lg.png">
+                <div class="logoText centered">
+                    August 13th, 2016 - Pittsville, WI
+                </div>
+            </paper-card>
+            <!--            <div class="card">
+                            <img src="../images/tourney_logo_lg.png">
+                        </div>-->
+            <tourney-features style="margin: 13px;"></tourney-features>
+           
+        </div>
+        <div class="card">
+            <div class="vertical layout">
+                <div class="centerContainer">
+                    <h1>Riverside Park, Pittsville, WI</h1>
+                </div>
+                <div>
+                    <google-map 
+                        api-key="AIzaSyC6Nx9oieHL4Gt3ZypeOP7fdry1jMnIGGs"
+                        latitude="44.4423331" 
+                        longitude="-90.131842"
+                        zoom="16"></google-map>
+                </div>
 
-  </template>
+            </div>
+        </div>
+        <!--</div>-->
 
-  <script>
+        <!--        <p>Signed In: {{signedIn}}</p>
+                <p>User: {{user}}</p>-->
+    </template>
 
-    Polymer({
+    <script>
 
-      is: 'my-view1'
+        Polymer({
+            is : 'my-view1',
+            properties : {
+                user : {
+                    type : Object,
+                    readOnly : true,
+                    value : null,
+                    notify : true
+                },
+                signedIn : {
+                    type : Boolean,
+                    notify : true
+                },
+            }
 
-    });
+        });
 
-  </script>
+    </script>
 
 </dom-module>

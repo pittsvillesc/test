@@ -1,0 +1,148 @@
+<!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
+<link rel="import" href="../bower_components/paper-card/paper-card.html">
+<link rel="import" href="../bower_components/paper-styles/shadow.html">
+<link rel="import" href="../bower_components/paper-styles/color.html">
+<link rel="import" href="../bower_components/paper-styles/typography.html">
+<link rel="import" href="../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="tourney-sponsors.html">
+
+<dom-module id="tourney-features">
+
+    <template>
+
+        <style>
+            :host {
+
+                --iron-icon-fill-color: var(--app-primary-color);
+            }
+            .horizontal {
+                @apply(--layout-horizontal);
+                @apply(--layout-wrap);
+            }
+
+            .headerText {
+                @apply(--paper-font-subhead);
+                @apply(--vertical-layout);
+            }
+            .inlineLogo {
+                float: right;
+                vertical-align: middle;
+                @apply(--paper-font-headline);
+            }
+            .featureWithLeftImage {
+                float: right;
+                vertical-align: middle;
+                max-width: 195px;
+                /*@apply(--paper-font-headline);*/
+            }
+            paper-card {
+                margin: 8px;
+            }
+
+        </style>
+
+        <div class="horizontal" style="max-width: 1050px;">
+
+            <div class="vertical layout">
+                <div>
+                    <paper-card heading="Inaugural Tournament Hosted by">                    
+                        <div class="vertical layout">
+                            <div class="card-content">
+                                <img src="../images/logo_sm.png">
+                                <img src="../images/behip_logo_sm.png">                            
+                            </div>
+                            <div class="card-content" style="max-width: 375px;">
+                                All proceeds go toward keeping youth and adults healthy in Pittsville as well as Voyageurs F.C. youth soccer!
+                            </div>
+                        </div>
+                    </paper-card>
+                </div>
+                <div>
+                    <paper-card>
+                        <div class="card-content">
+                            <div style="float: left;"><img src="../images/clumsy-sue-2.gif"></div>
+                            <div class="featureWithLeftImage paper-font-subhead">No Previous soccer experience required!<hr> 
+                                All abilities and skill levels are welcome.<hr>
+                                Teams placed in division by average age and experience
+                            </div>
+                        </div>
+                    </paper-card>
+                </div>
+            </div>
+            <div>
+                <tourney-sponsors></tourney-sponsors>
+            </div>
+
+            <div>
+                <paper-card heading="Registration &amp; Fees">
+                    <div class="card-content">
+                        <div class="horizontal">
+                            <div class="headerText"  style="text-align: right; margin: 8px;">                            
+                                <div>Youth Teams (ages 7-16):</div>                                
+                                <div>Adult Teams (ages 17+):</div>                            
+                            </div>
+                            <div class="headerText" style="margin: 8px;">
+                                <div>$75</div>                                
+                                <div>$100</div>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="vertical">
+                            <div>Teams must be registered by July 26th to receive free t-shirts</div>
+                            <div>Final Deadline: August 7th</div>
+                        </div>
+                    </div>
+                </paper-card>
+            </div>
+            <div>
+                <paper-card heading="Details">
+                    <div class="card-content">
+                        <div class="vertical layout">
+                            <div><iron-icon icon="star"></iron-icon> 3-5 Players per Team</div>
+                            <hr>
+                            <div><iron-icon icon="star"></iron-icon> 2 Game Guarantee</div>
+                            <hr>
+                            <div><iron-icon icon="star"></iron-icon> Medals Awarded to Division Champions</div>
+                            <hr>
+                            <div><iron-icon icon="star"></iron-icon> Open to First Graders and Octogenarians!</div>
+                        </div>
+                    </div>
+                </paper-card>
+            </div> 
+            <div>
+                <paper-card id='contact' on-tap='contactUs' heading='Contact Us!'>
+                    <div class='card-content'>
+                        <div class='headerText'>
+                            pittsvillesc@gmail.com
+                        </div>
+                    </div>
+                </paper-card>
+            </div>
+        </div>
+
+
+    </template>
+
+    <script>
+
+        Polymer({
+            is: 'tourney-features',
+            contactUs: function () {
+                window.open("mailto:pittsvillesc@gmail.com?Subject=Tourney", "_blank");
+            }
+        });
+
+    </script>
+
+</dom-module>

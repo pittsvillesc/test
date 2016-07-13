@@ -1,0 +1,85 @@
+<!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
+<link rel="import" href="../bower_components/paper-card/paper-card.html">
+<link rel="import" href="../bower_components/paper-styles/shadow.html">
+<link rel="import" href="../bower_components/paper-styles/color.html">
+<link rel="import" href="../bower_components/paper-styles/typography.html">
+
+<dom-module id="tourney-sponsors">
+
+    <template>
+
+        <style>
+            :host {
+
+                --iron-icon-fill-color: var(--app-primary-color);
+            }
+            .horizontal {
+                @apply(--layout-horizontal);
+                @apply(--layout-wrap);
+            }
+
+            .headerText {
+                @apply(--paper-font-subhead);
+                @apply(--vertical-layout);
+            }
+            .inlineLogo {
+                float: right;
+                vertical-align: middle;
+                @apply(--paper-font-headline);
+            }
+            .featureWithLeftImage {
+                float: right;
+                vertical-align: middle;
+                max-width: 195px;
+                /*@apply(--paper-font-headline);*/
+            }
+            paper-card {
+                margin: 8px;
+            }
+            .centered {
+                max-width: 350px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+        </style>
+
+        <div class="horizontal">
+            <div>
+                <paper-card heading="Thank you to our sponsors and parteners!">                    
+                    <div class="vertical layout">
+                        <div class="card-content centered">
+                            <div><img src="../images/Thrivent-Logo-134x112.png"></div>
+                            <div><img src="../images/logo-390x75.jpg"></div>
+                            <div><img src="../images/the-gathering-place-restaurant-logo-pittsville-wi.png"></div>
+                        </div>
+
+                    </div>
+                </paper-card>
+            </div>
+
+        </div>
+
+
+    </template>
+
+    <script>
+
+        Polymer({
+            is: 'tourney-sponsors',
+        });
+
+    </script>
+
+</dom-module>

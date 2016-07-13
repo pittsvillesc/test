@@ -9,63 +9,69 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 -->
 
 <link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../bower_components/iron-icon/iron-icon.html">
+<link rel="import" href="../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
+<dom-module id="my-login">
 
-<dom-module id="my-view1">
+    <template>
 
-  <template>
+        <style>
+            :host {
+                position: absolute;
+                top: 46px;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: var(--app-primary-color);
+                transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                z-index: 1;
+                color: var(--paper-purple-50);
+                @apply(--layout);
+                @apply(--layout-center-center);
+            }
+            :host([signed-in]) {
+                opacity: 0;
+                pointer-events: none;
+            }
+            paper-button > * {
+                vertical-align: middle;
+                text-transform: none;
+            }
+        </style>
+        <paper-button on-tap="signIn" disabled="[[disabled]]">
+            <iron-icon icon="account-circle"></iron-icon>
+            <span>Sign in with Google</span>
+        </paper-button>
+    </template>
 
-    <style>
-      :host {
-        display: block;
-        padding: 10px;
-      }
-      .card {
-        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
-        padding: 16px;
-        margin: 24px;
-        border-radius: 5px;
-        background-color: #fff;
-        color: #757575;
-      }
-      .circle {
-        display: inline-block;
-        height: 64px;
-        width: 64px;
-        border-radius: 50%;
-        background: #ddd;
-        line-height: 64px;
-        font-size: 30px;
-        color: #555;
-        text-align: center;
-      }
-      h1 {
-        font-size: 22px;
-        margin: 16px 0;
-        color: #212121;
-      }
-    </style>
+    <script>
 
-    <div class="card">
-      <!--<div class="circle">1</div>-->
-      <div><img src="/images/logo_sm.png"></div>
-      <h1>Voyageurs FC Open Cup 3 vs 3 Tournament</h1>
-      <p>Pittsville Youth Soccer and Be Healthy In Pittsville invite you to participate in a celebration of The Beautiful Game!</p>
-      <h3>When: Saturday, August 13th (9am - 8pm)</h3>      
-      <h3>Where: Riverside Park - Pittsville, WI</h3>
-      <p>The tournament is open for all skill levels.  Minimum age is children going into the 2nd Grade.  Adult age divisions available as well!</p>
-            
-    </div>
+        Polymer({
+            is : 'my-login',
+            properties : {
+                disabled : {
+                    type : Boolean,
+                    reflectToAttribute : true,
+                    value : false
+                },
+                signedIn : {
+                    type : Boolean,
+                    reflectToAttribute : true,
+                    value : false
+                }
+            },
+            signIn : function() {
+                console.log("In my-login signIn");
+                this.fire('sign-in', null, {
+                    bubbles : false
+                });
+                
+            }
 
-  </template>
+        });
 
-  <script>
-
-    Polymer({
-
-      is: 'my-view1'
-
-    });
-
-  </script>
+    </script>
 
 </dom-module>

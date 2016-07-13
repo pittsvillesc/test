@@ -13,6 +13,22 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel='import' href='../bower_components/paper-radio-group/paper-radio-group.html'>
 <link rel='import' href='../bower_components/paper-radio-button/paper-radio-button.html'>
 <link rel='import' href='../bower_components/paper-button/paper-button.html'>
+<link rel="import" href='player-card.html'>
+<link rel="import" href="../bower_components/polymerfire/firebase-auth.html">
+<link rel="import" href="../bower_components/paper-card/paper-card.html">
+<link rel="import" href="../bower_components/paper-styles/shadow.html">
+<link rel="import" href="../bower_components/paper-styles/color.html">
+<link rel="import" href="../bower_components/paper-styles/typography.html">
+<link rel="import" href="../bower_components/iron-icons/iron-icons.html">
+<link rel='import' href='../bower_components/iron-icons/communication-icons.html'>
+<link rel="import" href="../bower_components/paper-input/paper-input-error.html">
+<link rel="import" href="../bower_components/paper-dialog/paper-dialog.html">
+<link rel="import" href="../bower_components/neon-animation/neon-animations.html">
+<link rel="import" href="../bower_components/paper-dialog-behavior/paper-dialog-behavior.html">
+<link rel="import" href="../bower_components/iron-form/iron-form.html">
+<link rel="import" href="../bower_components/paper-dialog-scrollable/paper-dialog-scrollable.html">
+<!--<link rel="import" href="../bower_components/polymerfire/polymerfire.html">-->
+<!--<link rel="import" href="my-login.html">-->
 
 <dom-module id="my-view3">
 
@@ -47,145 +63,312 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 margin: 16px 0;
                 color: #212121;
             }
-            #teamForm {
+            #confirm {
+                background-color: white;
+            }
+            .teamForm {
                 @apply(--layout-horizontal);
                 @apply(--layout-wrap);
+                @apply(--layout-around-justified);
+
             }
-            .playerCard {
-                @apply(--layout-vertical);
+            .teamFormCard {
+                background: var(--app-primary-color);
+                margin: 20px;
+                --paper-card-header-color: white;
             }
+
             paper-button.fancy {
-                background: green;
+                background: var(--app-primary-color);
                 color: yellow;
+                margin-top: 15px;
             }
 
             paper-button.fancy:hover {
-                background: lime;
+                background: var(--app-primary-color);
+            }
+
+            player-card {
+                max-width: 575px;
+            }
+            iron-icon {
+                margin-right: 5px;
+            }
+            paper-dialog {
+                max-width: 575px;
             }
         </style>
-
         <div class="card">
             <h1>Team Registration</h1>
-            <div><img src="/images/logo_sm.png"></div>            
+            <!--<div><img src="/images/logo_sm.png"></div>-->            
             <div id='teamCard'>
-                <paper-input label='Team Name'></paper-input>
-                <paper-input label='Home Town/Parent Club'></paper-input>
-                <paper-input label='Contact First Name'></paper-input>
-                <paper-input label='Contact Last Name'></paper-input>                
-                <paper-input label='Contact Phone Number'></paper-input>
-                <paper-input type='email' label='Contact Email'></paper-input>             
-                <paper-button class='fancy' raised>Submit Registration</paper-button>
-            </div>
-        </div>
-        <div id='teamForm'>            
-            <div class='flex-auto card playerCard'>
-                <h3>Player #1</h3>
-                <paper-input label='Player Last Name'></paper-input>
-                <paper-input label='Player First Name'></paper-input>
-                <paper-input label='Date of Birth' type='date'></paper-input>
-                <paper-input type='email' label='Player Email'></paper-input>
-                <label id='genderlabel1'>Gender</label>
-                <paper-radio-group aria-labelledby='genderlabel'>
-                    <paper-radio-button name='female'>Female</paper-radio-button>
-                    <paper-radio-button name='male'>Male</paper-radio-button>
-                </paper-radio-group>
-                <label id='label1'>Player Level/Experience</label>
-                <paper-radio-group aria-labelledby='label1'>
-                    <paper-radio-button name='a'>No Organized Experience</paper-radio-button>
-                    <paper-radio-button name='b'>Recreational League</paper-radio-button>
-                    <paper-radio-button name='c'>Travel/Competitive Youth</paper-radio-button>
-                    <paper-radio-button name='d'>Varsity/Advanced Competitive</paper-radio-button>
-                    <paper-radio-button name='e'>Elite</paper-radio-button>
-                </paper-radio-group>
-            </div>
-            <div class='flex-auto card playerCard'>
-                <h3>Player #2</h3>
-                <paper-input label='Player Last Name'></paper-input>
-                <paper-input label='Player First Name'></paper-input>
-                <paper-input label='Date of Birth' type='date'></paper-input>
-                <paper-input type='email' label='Player Email'></paper-input>
-                <label id='genderlabel2'>Gender</label>
-                <paper-radio-group aria-labelledby='genderlabel2'>
-                    <paper-radio-button name='female'>Female</paper-radio-button>
-                    <paper-radio-button name='male'>Male</paper-radio-button>
-                </paper-radio-group>
-                <label id='label1'>Player Level/Experience</label>
-                <paper-radio-group aria-labelledby='label1'>
-                    <paper-radio-button name='a'>No Organized Experience</paper-radio-button>
-                    <paper-radio-button name='b'>Recreational League</paper-radio-button>
-                    <paper-radio-button name='c'>Travel/Competitive Youth</paper-radio-button>
-                    <paper-radio-button name='d'>Varsity/Advanced Competitive</paper-radio-button>
-                    <paper-radio-button name='e'>Elite</paper-radio-button>
-                </paper-radio-group>
-            </div>
-            <div class='flex-auto card playerCard'>
-                <h3>Player #3</h3>
-                <paper-input label='Player Last Name'></paper-input>
-                <paper-input label='Player First Name'></paper-input>
-                <paper-input label='Date of Birth' type='date'></paper-input>
-                <paper-input type='email' label='Player Email'></paper-input>
-                <label id='genderlabel3'>Gender</label>
-                <paper-radio-group aria-labelledby='genderlabel3'>
-                    <paper-radio-button name='female'>Female</paper-radio-button>
-                    <paper-radio-button name='male'>Male</paper-radio-button>
-                </paper-radio-group>
-                <label id='label1'>Player Level/Experience</label>
-                <paper-radio-group aria-labelledby='label1'>
-                    <paper-radio-button name='a'>No Organized Experience</paper-radio-button>
-                    <paper-radio-button name='b'>Recreational League</paper-radio-button>
-                    <paper-radio-button name='c'>Travel/Competitive Youth</paper-radio-button>
-                    <paper-radio-button name='d'>Varsity/Advanced Competitive</paper-radio-button>
-                    <paper-radio-button name='e'>Elite</paper-radio-button>
-                </paper-radio-group>
-            </div>
-            <div class='flex-auto card playerCard'>
-                <h3>Player #4</h3>
-                <paper-input label='Player Last Name'></paper-input>
-                <paper-input label='Player First Name'></paper-input>
-                <paper-input label='Date of Birth' type='date'></paper-input>
-                <paper-input type='email' label='Player Email'></paper-input>
-                <label id='genderlabel4'>Gender</label>
-                <paper-radio-group aria-labelledby='genderlabel4'>
-                    <paper-radio-button name='female'>Female</paper-radio-button>
-                    <paper-radio-button name='male'>Male</paper-radio-button>
-                </paper-radio-group>
-                <label id='label1'>Player Level/Experience</label>
-                <paper-radio-group aria-labelledby='label1'>
-                    <paper-radio-button name='a'>No Organized Experience</paper-radio-button>
-                    <paper-radio-button name='b'>Recreational League</paper-radio-button>
-                    <paper-radio-button name='c'>Travel/Competitive Youth</paper-radio-button>
-                    <paper-radio-button name='d'>Varsity/Advanced Competitive</paper-radio-button>
-                    <paper-radio-button name='e'>Elite</paper-radio-button>
-                </paper-radio-group>
-            </div>
-            <div class='flex-auto card playerCard'>
-                <h3>Player #5</h3>
-                <paper-input label='Player Last Name'></paper-input>
-                <paper-input label='Player First Name'></paper-input>
-                <paper-input label='Date of Birth' type='date'></paper-input>
-                <paper-input type='email' label='Player Email'></paper-input>
-                <label id='genderlabel5'>Gender</label>
-                <paper-radio-group aria-labelledby='genderlabel5'>
-                    <paper-radio-button name='female'>Female</paper-radio-button>
-                    <paper-radio-button name='male'>Male</paper-radio-button>
-                </paper-radio-group>
-                <label id='label1'>Player Level/Experience</label>
-                <paper-radio-group aria-labelledby='label1'>
-                    <paper-radio-button name='a'>No Organized Experience</paper-radio-button>
-                    <paper-radio-button name='b'>Recreational League</paper-radio-button>
-                    <paper-radio-button name='c'>Travel/Competitive Youth</paper-radio-button>
-                    <paper-radio-button name='d'>Varsity/Advanced Competitive</paper-radio-button>
-                    <paper-radio-button name='e'>Elite</paper-radio-button>
-                </paper-radio-group>
-            </div>
-        </div>
+                <paper-input 
+                    id='teamName'
+                    label='Team Name' 
+                    value="{{teamName}}"
+                    required
+                    auto-validate
+                    error-message='A Team Name is required!'>                        
+                </paper-input>
 
+                <paper-input
+                    id='homeTown'
+                    label='Home Town/Parent Club' 
+                    value="{{homeTown}}"
+                    required
+                    auto-validate
+                    error-message='A Home Town or Parent Club is required!'>                        
+                </paper-input>
+
+                <paper-input 
+                    id='contactFirstName'
+                    label='Contact First Name - for youth division teams, this must be an adult' 
+                    value="{{contactFirstName}}"
+                    required
+                    auto-validate
+                    error-message='A Contact First Name is required!'>                        
+                </paper-input>
+
+                <paper-input 
+                    id='contactLastName'
+                    label='Contact Last Name' 
+                    value="{{contactLastName}}"
+                    required
+                    auto-validate
+                    error-message='A Contact Last Name is required!'>                        
+                </paper-input>                
+
+                <paper-input 
+                    id='contactPhone'
+                    label='Contact Phone Number' 
+                    value="{{contactPhone}}"
+                    required
+                    auto-validate
+                    error-message='A Contact Phone Number is required!'>                        
+                    <!--<iron-icon icon='communication:contact-phone' prefix></iron-icon>-->
+                </paper-input>
+
+                <paper-input 
+                    id='contactEmail'
+                    type='email' 
+                    label='Contact Email' 
+                    value="{{contactEmail}}"
+                    required
+                    auto-validate
+                    error-message='A Contact Email is required!'>                        
+                </paper-input>             
+                <paper-button 
+                    class='fancy' 
+                    raised 
+                    on-tap="submitTeam">
+                    Submit Registration
+                </paper-button>
+            </div>
+
+
+        </div>
+        <paper-card class="teamFormCard" heading="Player Registration">
+            <!--<div id='teamForm'>-->    
+            <card-content class="teamForm">
+                <template is="dom-repeat" items="{{players}}">
+                    <player-card 
+                        id="playerNbr{{item.playerNumber}}" 
+                        player-number="{{item.playerNumber}}"
+                        first-name="{{item.firstName}}"
+                        last-name="{{item.lastName}}"
+                        birthdate="{{item.birthdate}}"
+                        email="{{item.email}}"
+                        gender="{{item.gender}}"
+                        experience="{{item.experience}}"
+                        shirt-size="{{item.shirtSize}}"
+                        valid='{{item.valid}}'>
+
+                    </player-card>
+                </template>           
+            </card-content>
+            <!--</div>-->
+        </paper-card>
+
+        <paper-dialog 
+            id="confirm"
+            entry-animation="scale-up-animation"
+            exit-animation="fade-out-animation"
+            on-iron-overlay-closed='closeModal'>
+            <div class="paper-font-title"><h1>Congratulations! You are registered!</h1></div>
+            <paper-input label="Team Name" value="{{teamName}}" read-only></paper-input>
+            <paper-input label="Contact" value="{{contactFirstName}} {{contactLastName}}" readonly></paper-input> 
+            <paper-input label="Confirmation Key" value="{{regKey}}" readonly></paper-input>
+                <paper-dialog-scrollable>
+                    <p>You are now registered to compete in the 2016 Goooooaaaalll Getter 3-on-3 Tournament!</p>
+                    <p>If you do not receive a confirmation in the mail within 24 hours, please contact us and let us know you haven't received confirmation.</p>
+                    <p>While you're waiting for the confirmation, take some time to review the tournament rules and make arrangements for match day.</p><hr>
+                    <p>It is EXTREMELY important that you print out the Waiver Form.  You must hand this in at the registration table along with your payment on the day of the tournament.</p>
+                    <p>YOU WILL NOT BE ALLOWED TO PLAY WITHOUT THE WAIVER FORM SIGNED BY ALL MEMBERS OF YOUR TEAM.</p>
+                    <div class="paper-font-headline">Cheers!  We look forward to seeing you.</div>
+                </paper-dialog-scrollable>
+                <div class="buttons">
+                    <paper-button dialog-confirm>OK</paper-button>
+                </div>            
+        </paper-dialog>
     </template>
+    <script>
+        var config = {
+            apiKey: "AIzaSyC6Nx9oieHL4Gt3ZypeOP7fdry1jMnIGGs",
+            authDomain: "soccertourney2016.firebaseapp.com",
+            databaseURL: "https://soccertourney2016.firebaseio.com",
+            storageBucket: "soccertourney2016.appspot.com",
+        };
+        firebase.initializeApp(config);
+        var database = firebase.database();</script>
 
     <script>
 
         Polymer({
-            is : 'my-view3'
+            is: 'my-view3',
+            properties: {
+                teamName: {
+                    type: String,
+                    notify: true
+                },
+                homeTown: String,
+                contactFirstName: String,
+                contactLastName: String,
+                contactPhone: String,
+                contactEmail: String,
+                regKey: {
+                    type: String,
+                    notify: true
+                },
+                user: {
+                    type: Object,
+                    readOnly: true,
+                    value: null,
+                    notify: true
+                },
+                signedIn: {
+                    type: Boolean,
+                    notify: true
+                },
+                players: {
+                    type: Array,
+//                    size: 5,
+                    value: [
+                        {
+                            playerNumber: 1,
+                            firstName: "",
+                            lastName: "",
+                            birthdate: "",
+                            email: "",
+                            gender: "",
+                            experience: "",
+                            shirtSize: "",
+                            valid: false
+                        },
+                        {
+                            playerNumber: 2,
+                            firstName: "",
+                            lastName: "",
+                            birthdate: "",
+                            email: "",
+                            gender: "",
+                            experience: "",
+                            shirtSize: "",
+                            valid: false
+                        },
+                        {
+                            playerNumber: 3,
+                            firstName: "",
+                            lastName: "",
+                            birthdate: "",
+                            email: "",
+                            gender: "",
+                            experience: "",
+                            shirtSize: "",
+                            valid: false
+                        },
+                        {
+                            playerNumber: 4,
+                            firstName: "",
+                            lastName: "",
+                            birthdate: "",
+                            email: "",
+                            gender: "",
+                            experience: "",
+                            shirtSize: "",
+                            valid: false
+                        },
+                        {
+                            playerNumber: 5,
+                            firstName: "",
+                            lastName: "",
+                            birthdate: "",
+                            email: "",
+                            gender: "",
+                            experience: "",
+                            shirtSize: "",
+                            valid: false
+                        }
+                    ]
+                }
+            },
+            signIn: function () {
+                console.log("Sign In");
+                this.$.auth.signInWithPopup();
+            },
+            closeModal: function (e) {              
+                location.href = "waiver";
+            },
+            submitTeam: function () {
+
+                if (this.$.teamName.invalid ||
+                        this.$.homeTown.invalid ||
+                        this.$.contactFirstName.invalid ||
+                        this.$.contactLastName.invalid ||
+                        this.$.contactPhone.invalid ||
+                        this.$.contactEmail.invalid) {
+                    alert("You have required fields that must be filled out before submitting the registration.");
+                } else if (!this.validatePlayers()) {
+                    alert("You must have at least 3 players registered on your team before submitting the registration.");
+                } else {
+                    var teamData = {
+                        teamName: this.teamName,
+                        homeTown: this.homeTown,
+                        contactFirstName: this.contactFirstName,
+                        contactLastName: this.contactLastName,
+                        contactEmail: this.contactEmail,
+                        players: this.players
+                    };
+                    var self = this.$;
+                    var ref = database.ref('registrations/').
+                            push(teamData, function (e) {
+                                if (e) {
+                                    alert("There was an error saving your data.  Please contact us and reference the following message: \n" +
+                                            e);
+                                } else {
+                                    self.confirm.open();
+                                }
+                            });
+                    this.regKey = ref.key;
+                }
+            }
+            ,
+            validatePlayers: function () {
+                var validPlayers = 0;
+                $.each(this.players, function (i, player) {
+                    if (this.firstName !== "" &&
+                            this.lastName !== "" &&
+                            this.birthdate !== "" &&
+                            this.gender !== "" &&
+                            this.experience !== "") {
+                        validPlayers += 1;
+                    }
+                });
+                if (validPlayers < 3) {
+                    return false;
+                } else {
+                    return true;
+                }
+            }
 
         });
 

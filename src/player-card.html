@@ -10,62 +10,168 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <link rel="import" href="../bower_components/polymer/polymer.html">
 
-<dom-module id="my-view1">
+<dom-module id="player-card">
 
-  <template>
+    <template>
 
-    <style>
-      :host {
-        display: block;
-        padding: 10px;
-      }
-      .card {
-        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
-        padding: 16px;
-        margin: 24px;
-        border-radius: 5px;
-        background-color: #fff;
-        color: #757575;
-      }
-      .circle {
-        display: inline-block;
-        height: 64px;
-        width: 64px;
-        border-radius: 50%;
-        background: #ddd;
-        line-height: 64px;
-        font-size: 30px;
-        color: #555;
-        text-align: center;
-      }
-      h1 {
-        font-size: 22px;
-        margin: 16px 0;
-        color: #212121;
-      }
-    </style>
+        <style>
+            :host {
+                display: block;
+                padding: 10px;
+            }
+            .card {
+                box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+                padding: 16px;
+                margin: 24px;
+                border-radius: 5px;
+                background-color: #fff;
+                color: #757575;
+            }
+            .circle {
+                display: inline-block;
+                height: 64px;
+                width: 64px;
+                border-radius: 50%;
+                background: #ddd;
+                line-height: 64px;
+                font-size: 30px;
+                color: #555;
+                text-align: center;
+            }
+            h1 {
+                font-size: 22px;
+                margin: 16px 0;
+                color: #212121;
+            }
+            .playerCard {
+                @apply(--layout-vertical);
+            }
+        </style>
 
-    <div class="card">
-      <!--<div class="circle">1</div>-->
-      <div><img src="/images/logo_sm.png"></div>
-      <h1>Voyageurs FC Open Cup 3 vs 3 Tournament</h1>
-      <p>Pittsville Youth Soccer and Be Healthy In Pittsville invite you to participate in a celebration of The Beautiful Game!</p>
-      <h3>When: Saturday, August 13th (9am - 8pm)</h3>      
-      <h3>Where: Riverside Park - Pittsville, WI</h3>
-      <p>The tournament is open for all skill levels.  Minimum age is children going into the 2nd Grade.  Adult age divisions available as well!</p>
+
+        <div class='flex-auto card playerCard'>
+            <h3>Player #{{playerNumber}}</h3>
+            <paper-input 
+                label='Player First Name' 
+                id="plFirstName" 
+                value="{{firstName}}" >                    
+            </paper-input>           
+
+            <paper-input 
+                label='Player Last Name' 
+                id="plLastName" 
+                value="{{lastName}}">                    
+            </paper-input>
+
+            <paper-input 
+                label='Date of Birth' 
+                type='date' 
+                id="plDOB" 
+                value="{{birthdate}}">                    
+            </paper-input>
+
+            <paper-input 
+                type='email' 
+                label='Player Email' 
+                id="plEmail" 
+                value="{{email}}">                    
+            </paper-input>
+
+            <label id='genderlabel1'>Gender</label>
+            <paper-radio-group 
+                aria-labelledby='genderlabel' 
+                id="plGender" 
+                selected="{{gender}}">
+                <paper-radio-button name='female'>Female</paper-radio-button>
+                <paper-radio-button name='male'>Male</paper-radio-button>
+            </paper-radio-group>
+
+            <label id='label1'>Player Level/Experience</label>
+            <paper-radio-group 
+                aria-labelledby='label1' 
+                id="plExperience" 
+                selected="{{experience}}">
+                <paper-radio-button name='0'>No Organized Experience</paper-radio-button>
+                <paper-radio-button name='1'>Recreational League</paper-radio-button>
+                <paper-radio-button name='2'>Travel/Competitive Youth</paper-radio-button>
+                <paper-radio-button name='3'>Varsity/Advanced Competitive</paper-radio-button>
+                <paper-radio-button name='4'>Elite</paper-radio-button>
+            </paper-radio-group>
             
-    </div>
+            <label id='label2'>T-Shirt Size</label>
+            <paper-radio-group 
+                aria-labelledby='label2' 
+                id="plShirtSize" 
+                selected="{{shirtSize}}">
+                <paper-radio-button name='ys'>Youth Small</paper-radio-button>
+                <paper-radio-button name='ym'>Youth Medium</paper-radio-button>
+                <paper-radio-button name='yl'>Youth Large</paper-radio-button>
+                <paper-radio-button name='xs'>Extra Small</paper-radio-button>
+                <paper-radio-button name='sm'>Small</paper-radio-button>
+                <paper-radio-button name='md'>Medium</paper-radio-button>
+                <paper-radio-button name='lg'>Large</paper-radio-button>
+                <paper-radio-button name='xl'>X-Large</paper-radio-button>
+            </paper-radio-group>
+        </div>
 
-  </template>
+    </template>
 
-  <script>
+    <script>
 
-    Polymer({
+        Polymer({
+            is : 'player-card',
+            properties : {
+                playerNumber : {
+                    type : String
+                },
+                firstName : {
+                    type : String,
+                    notify : true
+                },
+                lastName : {
+                    type : String,
+                    notify : true
+                },
+                birthdate : {
+                    type : String,
+                    notify : true
+                },
+                email : {
+                    type : String,
+                    notify : true
+                },
+                gender : {
+                    type : String,
+                    notify : true
+                },
+                experience : {
+                    type : String,
+                    notify : true
+                },
+                shirtSize : {
+                    type : String,
+                    notify : true
+                },
+                valid : {
+                    type : Boolean,
+                    notify : true
+                }
+            },
+            validatePlayer : function() {
 
-      is: 'my-view1'
+                if (this.firstName.trim() !== "" &&
+                        this.lastName.trim() !== "" &&
+                        this.birthdate.trim() !== "" &&
+                        this.email.trim() !== "" &&
+                        this.gender.trim() !== "" &&
+                        this.experience.trim() !== "") {
+                    this.valid = true;
+                }
+                console.log("Valid? " + this.valid);
+            }
 
-    });
+        });
 
-  </script>
+    </script>
 
 </dom-module>
